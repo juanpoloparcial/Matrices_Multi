@@ -1,13 +1,3 @@
-# Realizar un sistema en JavaScript y Python para consola cmd (terminal) 
-# que solicite al usuario cargar el nombre, apellido, dni.
-# También se cargaran teléfonos asociados a la persona cargada, que puede 
-# ser mas de 1 numero telefónico por persona y que al finalizar muestren los datos en pantalla.
-
-#A modo de ejemplo la matriz tendrá la siguiente forma.     
-
-# ['Juan', 'Perez', '26123456', ['3704112233', '3704321456', '3704122321']]
-# ['Andres', 'Acosta', '29123654', ['3704223344', '3704212223']]
-
 print('\n'"- CARGA DE DATOS PERSONALES -" '\n')
 
 # Utilizaremos una lista para almacenar 
@@ -32,6 +22,19 @@ while True:
         telefonos.append(tel) #En caso de que si haya numero, se agrega a los datos
         #de la persona. 
         
-    personas.append([nombre,apellido, dni,telefonos])
+    personas.append([nombre,apellido, dni,"Teléfonos: ", telefonos])
+
+    #Se le consulta al usuario si desea seguir agregando más personas a la lista
+    agregar_persona = input("Quiere Agregar otra persona ?  (SI/NO): ").upper()
+    if agregar_persona != "SI":
+        break
+    #Cualquier respuesta que el usuario ingrese que no se "SI", se tomara como un "NO"
+    # y se finalizara la carga de otra persona a la lista. En caso de que responda de forma
+    # correcta, se habilita a que pueda ingresar una nueva persona a la lista.
     
-print("usted es: ", nombre, apellido, "y su dni es: ", dni)
+print('\n'"Lista de Personas: ")
+for i in personas:
+    print(i)
+    #Realizamos un ciclo For para que muestre por pantalla 
+    #Cada persona ingresada a la lista. Siendo "i", cada persona en la misma
+
